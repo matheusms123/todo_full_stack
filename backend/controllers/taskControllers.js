@@ -47,7 +47,7 @@ const taskController = {
             const userToken = await getUserByToken(token)
             const userId = userToken._id.toString()
 
-            const task = await Task.find({ userId: userId })
+            const task = await Task.find({ userId: userId, complete: false })
 
             res.json({ error: null, task})
 

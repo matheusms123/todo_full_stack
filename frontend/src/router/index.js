@@ -56,6 +56,17 @@ const router = createRouter({
       meta: {
         requiresAuth: true
       }
+    },
+    {
+      path: '/task/usertask/:id',
+      name: 'EditarTask',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/userTask.vue'),
+      meta: {
+        requiresAuth: true
+      }
     }
   ]
 })

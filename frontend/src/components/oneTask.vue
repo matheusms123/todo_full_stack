@@ -4,13 +4,13 @@
     <h1>todas as tasks</h1>
     <div class="container">
 
-      <div id="task" v-for="task in tasks" :key="task.id">
+      <div id="task">
 
         <div id="t-cont">
-          <h1 id="title" @click="btn($event)">{{ task.title }} </h1>
-          <router-link id="link" :to="`/task/usertask/${task._id}`">VER </router-link>
+          
+          <h1 id="title">{{ tasks.title }} </h1>
         </div>
-        <!-- <p id="description">{{ task.description }}</p> -->
+        <p id="description">{{ tasks.description }}</p>
 
       </div>
     </div>
@@ -26,7 +26,6 @@ export default {
     }
   },
   created() {
-
     this.todasTask()
   },
 
@@ -34,8 +33,9 @@ export default {
     async todasTask() {
 
       const token = this.$store.getters.token;
+      const id = this.$route.params.id
 
-      await fetch("http://localhost:3000/task/all", {
+      await fetch(`http://localhost:3000/task/usertask/${id}`, {
         method: "GET",
         headers: {
           "auth-token": token,
@@ -55,11 +55,6 @@ export default {
           console.log(error)
         })
 
-    },
-    async btn(e) {
-      e.preventDefault()
-      console.log(e.target)
-      e.target.classList.toggle("certo")
     }
 
   }
@@ -81,8 +76,6 @@ export default {
 }
 #title {
   cursor: pointer;
-  margin-bottom: 20px;
-  margin-top: 10px;
 }
 
 #task{
@@ -107,16 +100,4 @@ export default {
   margin-left: 80px;
 }
 
-a{
-    text-decoration: none;
-    color: black;
-}
-.certo {
-  color: green;
-  text-decoration: line-through;
-}
-
-#link{
-  margin-top: 21px;
-}
 </style>

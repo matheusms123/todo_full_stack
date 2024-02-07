@@ -13,7 +13,7 @@
             </div>
 
             <div>
-                <input type="submit" value="Cadastrar">
+                <input type="submit" id="btn" value="Entrar">
             </div>
         </form>
     </div>
@@ -69,7 +69,7 @@ export default {
                     } else {
                         this.$router.push('/')
                     }
-                }, 2000);
+                }, 200);
 
             })
         }
@@ -101,4 +101,21 @@ export default {
     width: 350px;
     height: 20px;
 }
+
+#btn{
+    padding: 10px 20px;
+    margin-left: 90px;
+    margin-top: 20px;
+    background-color: rgb(0, 0, 189);
+    color: white;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#btn:hover {
+    background-color: rgb(0, 0, 138);
+}
+
 </style>

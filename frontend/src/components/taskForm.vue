@@ -13,8 +13,8 @@
                 <input type="text" name="description" v-model="description" placeholder="Descrição...">
             </div>
             <div class="input-check">
-                <label for="description">Completo:</label>
-                <input type="checkbox" name="description" v-model="completed" placeholder="Descrição...">
+                <label for="complete">Completo:</label>
+                <input type="checkbox" name="complete" v-model="complete" >
             </div>
             
             <div>
@@ -32,7 +32,7 @@ export default {
         return{
             title: null,
             description: null,
-            completed: null,
+            complete: false,
             msg: null,
             msgClass: null
         }
@@ -40,12 +40,12 @@ export default {
     methods: {
         async adicionar(e) {
             e.preventDefault()
-            console.log("olá")
+            //console.log("olá")
 
             const data = {
                 title: this.title,
                 description: this.description,
-                completed: this.completed
+                complete: this.complete
             }
 
             const dataJson = JSON.stringify(data)
