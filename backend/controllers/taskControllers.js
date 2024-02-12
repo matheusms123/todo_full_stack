@@ -22,7 +22,7 @@ const taskController = {
         const tasks = new Task({
             title: title,
             description: description,
-            complete: req.body.complete,
+            complete: false,
             userId: userId
         })
 
@@ -56,6 +56,20 @@ const taskController = {
             return res.status(400).json({ error: `Algo deu errado: ${error}` })
         }
 
+    },
+    getConplete: async (req, res) => {
+        try {
+            const token = req.header("auth-token")
+            const usertoken = await getUserByToken(token)
+            const userId = usertoken._id.toString()
+            
+            const task = await Task.find({ userId: userId, complete: true})
+            
+            res.json({ error: null, task})
+
+        } catch (error) {
+            return res.status(400).json({ error: `Algo deu errado: ${error}` })
+        }
     },
     get: async (req, res) => {
         const id = req.params.id

@@ -67,22 +67,33 @@ const router = createRouter({
       meta: {
         requiresAuth: true
       }
+    },
+    {
+      path: '/complete',
+      name: 'Completas',
+      // route level code-splitting
+      // this generates a separate chunk (About.[hash].js) for this route
+      // which is lazy-loaded when the route is visited.
+      component: () => import('../views/Completas.vue'),
+      meta: {
+        requiresAuth: true
+      }
     }
   ]
 })
 
 router.beforeEach((to, from, next) => {
-  if(to.matched.some(record => record.meta.requiresAuth)) {
-      if(store.getters.authenticated === false) {
-          next({ 
-              path: '/login',
-              params: {nextUrl: to.fullPath}
-          })
-      } else {
-          next()
-      }
-  } else {
+  if (to.matched.some(record => record.meta.requiresAuth)) {
+    if (store.getters.authenticated === false) {
+      next({
+        path: '/login',
+        params: { nextUrl: to.fullPath }
+      })
+    } else {
       next()
+    }
+  } else {
+    next()
   }
 })
 

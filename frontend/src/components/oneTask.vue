@@ -1,14 +1,13 @@
-
 <template>
   <div class="principal">
-    <h1>todas as tasks</h1>
+    <h1>task:</h1>
     <div class="container">
 
       <div id="task">
 
         <div id="t-cont">
-          
           <h1 id="title">{{ tasks.title }} </h1>
+          <router-link to="/">editar</router-link>
         </div>
         <p id="description">{{ tasks.description }}</p>
 
@@ -74,9 +73,7 @@ export default {
   border: 2px solid ;
   padding: 60px;
 }
-#title {
-  cursor: pointer;
-}
+
 
 #task{
   border-bottom: 2px solid;
@@ -85,6 +82,20 @@ export default {
 
 #t-cont{
   display: flex;
+  align-items: baseline;
+}
+
+#t-cont a {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  font-size: 1.1em;
+}
+#t-cont a:hover {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  font-size: 1.3em;
 }
 #t-cont #title {
   margin-left: 30px;
@@ -97,7 +108,9 @@ export default {
 }
 
 #description {
-  margin-left: 80px;
+  margin-bottom: 10px;
+  margin-left: 30px;
+  font-size: 1.2em;
 }
 
 </style>

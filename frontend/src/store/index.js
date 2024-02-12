@@ -30,7 +30,8 @@ export default createStore({
     getters: {
         authenticated: state => state.authenticated,
         token: state => state.token,
-        userId: state => state.userId
+        userId: state => state.userId,
+        // btn: state => state.complete
     },
     plugins: [vuexLocal.plugin]
 })

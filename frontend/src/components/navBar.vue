@@ -3,7 +3,7 @@
         <div class="container-logado">
             <router-link to="/"> Home</router-link>
             <router-link to="/adtask" v-show="authenticated"> Adicionar</router-link>
-            <router-link to="/"  v-show="authenticated"> Completas</router-link>
+            <router-link to="/complete"  v-show="authenticated"> Completas</router-link>
         </div>
         <div class="container-logs">
             <router-link to="/" id="login" v-show="!authenticated"> log-in</router-link>

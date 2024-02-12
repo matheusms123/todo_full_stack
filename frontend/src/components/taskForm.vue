@@ -14,7 +14,7 @@
             </div>
             <div class="input-check">
                 <label for="complete">Completo:</label>
-                <input type="checkbox" name="complete" v-model="complete" >
+                <input type="checkbox" name="complete"  >
             </div>
             
             <div>
@@ -32,7 +32,7 @@ export default {
         return{
             title: null,
             description: null,
-            complete: false,
+            // complete: false,//colocar no v-model
             msg: null,
             msgClass: null
         }
@@ -45,7 +45,7 @@ export default {
             const data = {
                 title: this.title,
                 description: this.description,
-                complete: this.complete
+                // complete: this.complete
             }
 
             const dataJson = JSON.stringify(data)
@@ -74,7 +74,6 @@ export default {
                     this.msg = data.msg
                     this.msgClass = 'sucess'
 
-                    // this.$store.commit("authenticate", {token: data.token, userId: data.userId})
 
                 }
 
